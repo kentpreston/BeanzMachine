@@ -49,69 +49,69 @@ async def on_message(input):
     if "!help" in message:
         with open('HelpMessage', 'r') as helpFile:
             helpText = helpFile.read()
-        response = helpText
+        response += helpText
 
     # Response to "!advanced"
     if "!advanced" in message:
         with open('advancedHelp', 'r') as advancedFile:
             advancedText = advancedFile.read()
-        response = advancedText
+        response += advancedText
 
     if "!addinsult" in message:
         with open('Insults', 'a+') as insultsFile:
             insultsFile.write("\n" + message.replace(" !addinsult ", ''))
-        response += ("Added \"" + message.replace(" !addinsult ", '') + "\" as an insult.").format(input)
+        response += ("Added \"" + message.replace(" !addinsult ", '') + "\" as an insult.\n").format(input)
 
     # Response to greetings
     if ("hello" in message) or ("hey" in message) or ("hi" in message):
-        response += (greetings[random.randint(0,len(greetings) - 1)] + " {0.author.mention}").format(input)
+        response += (greetings[random.randint(0,len(greetings) - 1)] + " {0.author.mention}\n").format(input)
         message = input.content.lower().replace("beanzmachine", '').replace("?", '').replace("hello", '').replace("hey", '').replace("hi", '')
 
     # Decision making: options must be separated by "or"
     if " or " in message:
         options = message.replace(" or ", ",").split(",")
-        response += options[random.randint(0, len(options) - 1)].format(input)
+        response += options[random.randint(0, len(options) - 1)].format(input) + "\n"
 
     # Song recommendation:
     if " song" in message:
-        response += (songs[random.randint(0,len(songs) - 1)]).format(input)
+        response += (songs[random.randint(0,len(songs) - 1)]).format(input) + "\n"
 
     if " joke" in message:
-        response += (jokes[random.randint(0,len(jokes) - 1)]).format(input)
+        response += (jokes[random.randint(0,len(jokes) - 1)]).format(input) + "\n"
 
     # Add song recommendation:
     if "!addsong" in message:
         with open('songs', 'a+') as songsFile:
             songsFile.write("\n@\n" + message.replace(" !addsong ", ''))
             songsFile.write("\nSubmitted by " + input.author.name)
-        response += "Added song to list."
+        response += "Added song to list.\n"
 
     # Good bmash
     if message == "good ":
-        response += "*Woof!*"
+        response += "*Woof!*\n"
 
     # Bad bmash
     if message == "bad ":
-        response += ":("
+        response += ":(\n"
 
     # Fuck you
     if "fuck you" in message:
-        response += (insults[random.randint(0,len(insults) - 1)] + " {0.author.mention}").format(input)
+        response += (insults[random.randint(0,len(insults) - 1)] + " {0.author.mention}").format(input) + "\n"
 
     # I love you
     if "i love you" in message:
-        response += "I love you too,  {0.author.mention}".format(input)
+        response += "I love you too,  {0.author.mention}\n".format(input)
 
     # Validation
     if "validate" in message:
-        response += (validations[random.randint(0,len(validations) - 1)]).format(input)
+        response += (validations[random.randint(0,len(validations) - 1)]).format(input) + "\n"
 
     # Thank you
     if ("thank you" in message) or ("thanks" in message):
-        response += (welcomes[random.randint(0,len(welcomes) - 1)] + ", {0.author.mention}").format(input)
+        response += (welcomes[random.randint(0,len(welcomes) - 1)] + ", {0.author.mention}\n").format(input)
 
     if ("goodnight" in message) or ("gn" in message) or ("good night" in message):
-        response += (goodnights[random.randint(0,len(goodnights) - 1)] + "!").format(input)
+        response += (goodnights[random.randint(0,len(goodnights) - 1)] + "!\n").format(input)
 
     # Send response if not empty
     if response != '':
