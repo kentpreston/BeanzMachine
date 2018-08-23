@@ -1,0 +1,21 @@
+How to use BeanzMachine (A.K.A. "bmash"):
+Your message MUST contain "BeanzMachine" or "bmash" for BeanzMachine to read it.
+Remember that bmash is NOT case sensitive and ignores question marks.
+
+Some things you can do:
+- Say hi!
+    Bmash will respond to anything with "hey", "hi", or "hello."
+- Make decisions!
+    Bmash will make decisions for you.
+    Just enter the options separated by the word "or" or commas.
+    For example: "bmash qp, mh or lucioball?"
+- Be a dick!
+    Try "fuck you bmash!"
+- Ask for a song!
+    Use "song" in your message for a random song recommendation.
+- Ask for a joke!
+    Use "joke" in your message for a random joke.
+- Validate ships and stuff!
+    Use "validate" in your message for bmash's opinion.
+
+Type "bmash !advanced" for a list of advanced commands.

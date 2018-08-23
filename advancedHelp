@@ -1,0 +1,5 @@
+Advanced BeanzMachine (bmash) Commands:
+- !addsong
+    Include a link or song name and bmash will add the song to its recommendation list.
+- !addinsult
+    Type the insult and bmash will add it to its insult list.
